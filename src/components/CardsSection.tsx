@@ -1,5 +1,5 @@
 import Image from "next/image"
-import "./CardsCarousel.scss"
+import "./CardsSection.scss"
 
 export default function CardsSections() {
   const cards = [
