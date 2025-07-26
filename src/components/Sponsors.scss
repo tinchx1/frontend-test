@@ -1,0 +1,69 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.sponsors {
+  background: $color-gray-50;
+  @include section-padding;
+
+  &__container {
+    @include container;
+    max-width: 1200px;
+    @include text-center;
+  }
+
+  &__title {
+    @include section-title;
+  }
+
+  &__highlight {
+    @include text-highlight;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-xl;
+    color: $color-gray-400;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    font-size: $font-size-xl;
+    opacity: 0.7;
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Marquee styles
+.marquee {
+  display: flex;
+  overflow: hidden;
+  --duration: 40s;
+  --gap: 1rem;
+  gap: var(--gap);
+
+  &__content {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: around;
+    gap: var(--gap);
+    animation: marquee var(--duration) infinite linear;
+  }
+}
+
+// Marquee animations
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}

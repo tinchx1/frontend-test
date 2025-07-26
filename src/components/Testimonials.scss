@@ -1,0 +1,183 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.testimonials {
+  @include section-padding;
+  background-color: $color-white;
+  color: $color-black;
+
+  &__container {
+    @include container;
+    max-width: 1200px;
+    @include text-center;
+  }
+
+  &__title {
+    @include section-title;
+  }
+
+  &__highlight {
+    @include text-highlight;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-xl;
+    margin-bottom: $spacing-2xl;
+
+    &--desktop {
+      @include mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  &__mobile {
+    display: none;
+    
+    @include mobile-only {
+      display: block;
+    }
+  }
+
+  &__carousel {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform $transition-slow;
+    width: 100%;
+  }
+
+  &__card {
+    @include card-base;
+    padding: $spacing-xl;
+    text-align: left;
+    color: $color-black;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &--mobile {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: $spacing-lg;
+    
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-extrabold;
+    font-size: 19.35px;
+    line-height: 100%;
+    margin: 0 0 $spacing-sm 0;
+    color: $color-primary;
+  }
+
+  &__company {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 13.82px;
+    line-height: 100%;
+    margin: 0 0 $spacing-lg 0;
+    color: $color-black;
+  }
+
+  &__text {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-normal;
+    font-size: 13.82px;
+    margin: 0;
+    color: $color-black;
+  }
+
+  &__navigation {
+    @include flex-center;
+    gap: $spacing-md;
+  }
+
+  &__nav {
+    background: $color-primary;
+    border: none;
+    color: $color-white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: $font-size-lg;
+    cursor: pointer;
+    @include flex-center;
+    @include hover-scale(1.05);
+
+    &:hover {
+      background: darken($color-primary, 10%);
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba($color-primary, 0.3);
+    cursor: pointer;
+    transition: all $transition-slow;
+
+    &--active {
+      background: $color-primary;
+      transform: scale(1.2);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-lg;
+    }
+    
+    &__card:last-child {
+      grid-column: 1 / -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  @include mobile-only {
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    &__card {
+      padding: $spacing-lg;
+    }
+
+    &__nav {
+      width: 40px;
+      height: 40px;
+      font-size: $font-size-base;
+    }
+
+    &__indicator {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

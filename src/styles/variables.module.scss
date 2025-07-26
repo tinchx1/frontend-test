@@ -1,0 +1,41 @@
+// Import base variables
+@import './variables';
+
+// Export variables for JavaScript usage
+:export {
+  // Colors
+  colorPrimary: $color-primary;
+  colorWhite: $color-white;
+  colorBlack: $color-black;
+  colorGray50: $color-gray-50;
+  colorGray200: $color-gray-200;
+  colorGray400: $color-gray-400;
+  colorGray600: $color-gray-600;
+  colorGray900: $color-gray-900;
+  colorPrimaryTransparent: $color-primary-transparent;
+  
+  // Typography
+  fontSizeXs: $font-size-xs;
+  fontSizeSm: $font-size-sm;
+  fontSizeBase: $font-size-base;
+  fontSizeLg: $font-size-lg;
+  fontSizeXl: $font-size-xl;
+  fontSize2xl: $font-size-2xl;
+  fontSize3xl: $font-size-3xl;
+  fontSize4xl: $font-size-4xl;
+  
+  // Spacing
+  spacingXs: $spacing-xs;
+  spacingSm: $spacing-sm;
+  spacingMd: $spacing-md;
+  spacingLg: $spacing-lg;
+  spacingXl: $spacing-xl;
+  spacing2xl: $spacing-2xl;
+  spacing3xl: $spacing-3xl;
+  
+  // Breakpoints
+  breakpointSm: $breakpoint-sm;
+  breakpointMd: $breakpoint-md;
+  breakpointLg: $breakpoint-lg;
+  breakpointXl: $breakpoint-xl;
+} 

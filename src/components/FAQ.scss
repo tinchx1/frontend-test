@@ -1,0 +1,143 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.faq {
+  background: $color-gray-50;
+  @include section-padding;
+
+  &__container {
+    @include container;
+    max-width: 900px;
+  }
+
+  &__title {
+    @include section-title;
+    font-size: $font-size-3xl;
+  }
+
+  &__highlight {
+    @include text-highlight;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__item {
+    @include card-base;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    &:hover {
+      border-color: $color-primary;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__question {
+    width: 100%;
+    padding: $spacing-xl;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: $font-family-nunito;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all $transition-slow;
+    
+    &:hover {
+      background: rgba($color-primary, 0.02);
+    }
+
+    &--active {
+      background: rgba($color-primary, 0.05);
+    }
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba($color-primary, 0.1);
+    transition: all $transition-slow;
+
+    .faq__question--active & {
+      background: $color-primary;
+    }
+
+    .faq__question:hover & {
+      background: rgba($color-primary, 0.15);
+    }
+
+    .faq__question--active:hover & {
+      background: darken($color-primary, 5%);
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    color: $color-primary;
+    transition: color $transition-slow;
+    line-height: 1;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .faq__question--active & {
+      color: $color-white;
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+
+    &--open {
+      max-height: 400px;
+    }
+
+    p {
+      padding: $spacing-xl $spacing-lg;
+      margin: 0;
+      color: $color-gray-600;
+      line-height: $line-height-relaxed;
+      font-size: $font-size-sm;
+    }
+  }
+
+  @include mobile-only {
+    &__question {
+      padding: $spacing-lg;
+      font-size: $font-size-base;
+    }
+
+    &__icon-wrapper {
+      width: 28px;
+      height: 28px;
+    }
+
+    &__icon {
+      font-size: $font-size-base;
+    }
+
+    &__answer p {
+      padding: 0 $spacing-lg $spacing-lg;
+      font-size: $font-size-xs;
+    }
+  }
+}

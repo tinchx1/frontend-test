@@ -1,0 +1,97 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.final-cta {
+  position: relative;
+  height: 360px;
+  @include flex-center;
+  overflow: hidden;
+  background-color: $color-black;
+
+  @include tablet-up {
+    height: 333px;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba($color-black, 0.2),
+        transparent,
+        rgba($color-black, 0.4));
+  }
+
+  &__container {
+    @include container;
+    position: relative;
+    z-index: $z-index-fixed;
+    padding-top: $spacing-2xl;
+    padding-bottom: $spacing-2xl;
+
+    @include tablet-up {
+      padding-top: $spacing-4xl;
+      padding-bottom: $spacing-4xl;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: $spacing-2xl;
+    align-items: center;
+
+    @include desktop-up {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text-content {
+    text-align: center;
+
+    @include desktop-up {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 29px;
+    color: $color-white;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__highlight {
+    color: $color-primary-light;
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-extrabold;
+    font-size: 29px;
+  }
+
+  &__button-container {
+    @include flex-center;
+  }
+
+  &__cta-button {
+    @include button-round;
+    padding: $spacing-md $spacing-2xl;
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    text-align: center;
+    @include hover-scale;
+    justify-self: center;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}

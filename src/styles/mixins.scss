@@ -1,0 +1,143 @@
+@import './variables';
+
+// Layout mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+}
+
+// Section mixins
+@mixin section-padding {
+  padding: $spacing-4xl $spacing-md;
+  
+  @include mobile-only {
+    padding: $spacing-3xl $spacing-md;
+  }
+}
+
+@mixin section-title {
+  font-family: $font-family-nunito;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-normal;
+  color: $color-black;
+  margin-bottom: $spacing-3xl;
+  text-align: center;
+  
+  @include mobile-only {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+@mixin text-highlight {
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+// Card mixins
+@mixin card-base {
+  background: $color-white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all $transition-slow;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Responsive breakpoint mixins
+@mixin tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin large-desktop-up {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Button mixins
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: $font-family-nunito;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-round {
+  @include button-primary;
+  border-radius: 50px;
+}
+
+// Animation mixins
+@mixin hover-scale($scale: 1.05) {
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-lift($distance: -4px) {
+  transition: transform $transition-slow;
+
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// Utility mixins
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin full-width {
+  width: 100%;
+} 

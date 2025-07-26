@@ -1,0 +1,55 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.intro {
+  @include full-width;
+  @include section-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include text-center;
+  gap: $spacing-xl;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+  }
+
+  &__icon {
+    color: $color-primary;
+    margin-bottom: $spacing-xl;
+    margin-top: $spacing-4xl;
+  }
+
+  &__heading {
+    color: $color-black;
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-normal;
+    font-size: 29px;
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+    max-width: 690px;
+  }
+
+  &__accent {
+    color: $color-primary;
+
+    &--primary {
+      color: $color-primary;
+      font-weight: $font-weight-bold;
+    }
+
+    &--bold {
+      font-weight: $font-weight-extrabold;
+      color: $color-black;
+    }
+  }
+
+  &__paragraph {
+    max-width: 60rem;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: $line-height-normal;
+  }
+} 
