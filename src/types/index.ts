@@ -28,7 +28,7 @@ export type SectionTitle = keyof typeof import('@/constants').SECTION_TITLES
 
 export interface CarouselItem {
   id: number | string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export interface ImageSize {
