@@ -22,8 +22,9 @@
     max-width: 1400px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
-    gap: $spacing-2xl;
+    gap: $spacing-lg;
     justify-items: center;
+    margin-bottom: $spacing-4xl;
   }
 
   &__item {
@@ -100,7 +101,6 @@
       grid-template-columns: 1fr;
       gap: $spacing-xl;
       max-width: 248px;
-      margin-bottom: $spacing-4xl;
     }
 
     &__item {

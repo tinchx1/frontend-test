@@ -1,11 +1,17 @@
 "use client"
+import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { FAQ_DATA, SECTION_TITLES } from "@/constants"
-import { useAccordion } from "@/hooks"
 import "./FAQ.scss"
 
 export default function FAQ() {
-  const { openIndex, toggleItem, isOpen } = useAccordion()
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggleItem = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  const isOpen = (index: number) => openIndex === index
 
   return (
     <section className="faq">
