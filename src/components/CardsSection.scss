@@ -21,7 +21,7 @@
     @include container;
     max-width: 1400px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
     gap: $spacing-2xl;
     justify-items: center;
   }
@@ -30,11 +30,12 @@
     @include card-base;
     @include card-hover;
     overflow: hidden;
-    max-width: 400px;
-    width: 100%;
+    width: 322px;
+    height: 430px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
 
     &:hover {
       box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
@@ -78,21 +79,38 @@
 
   @include mobile-only {
     &__section-title {
-      font-size: $font-size-xl;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+    }
+
+    &__section-title-accent {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
     }
 
     &__container {
       grid-template-columns: 1fr;
       gap: $spacing-xl;
-      max-width: 320px;
+      max-width: 248px;
+      margin-bottom: $spacing-4xl;
     }
 
     &__item {
-      max-width: 100%;
+      width: 248px;
+      height: 331px;
+      border-radius: 9.24px;
     }
 
     &__image {
-      height: 250px;
+      height: 220px;
     }
 
     &__content {

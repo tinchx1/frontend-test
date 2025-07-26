@@ -4,7 +4,8 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  margin-top: 60px;
+  height: 425px;
   @include flex-center;
   overflow: hidden;
 
@@ -12,6 +13,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     padding-bottom: 10rem;
+    height: 690px;
   }
 
   &__image {
@@ -38,16 +40,22 @@
       align-items: flex-start;
       text-align: left;
       margin-left: 12rem;
-      margin-bottom: $spacing-4xl;
+      margin-bottom: $spacing-xl;
       max-width: 40rem;
     }
   }
 
   &__heading {
+    padding-top: 20px;
     font-family: $font-family-nunito;
-    font-size: 40px;
+    font-size: 26px;
     font-weight: $font-weight-bold;
-    line-height: 100%;
+    max-width: 285px;
+
+    @include tablet-up {
+      font-size: 40px;
+      max-width: 40rem;
+    }
   }
 
   &__subheading {

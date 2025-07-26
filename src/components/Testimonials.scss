@@ -14,10 +14,28 @@
 
   &__title {
     @include section-title;
+    
+    @include mobile-only {
+      font-family: $font-family-nunito;
+      font-weight: $font-weight-normal;
+      font-size: 28px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+    }
   }
 
   &__highlight {
     @include text-highlight;
+    
+    @include mobile-only {
+      font-family: $font-family-nunito;
+      font-weight: $font-weight-extrabold;
+      font-size: 28px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+    }
   }
 
   &__grid {

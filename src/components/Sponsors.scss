@@ -13,10 +13,26 @@
 
   &__title {
     @include section-title;
+    
+    @include mobile-only {
+      font-family: $font-family-nunito;
+      font-weight: $font-weight-extrabold;
+      font-size: 28px;
+      letter-spacing: 0%;
+      text-align: center;
+    }
   }
 
   &__highlight {
     @include text-highlight;
+    
+    @include mobile-only {
+      font-family: $font-family-nunito;
+      font-weight: $font-weight-semibold;
+      font-size: 28px;
+      letter-spacing: 0%;
+      text-align: center;
+    }
   }
 
   &__item {
