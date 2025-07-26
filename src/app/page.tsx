@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Intro } from "@/components/Intro";
-import CardsCarousel from "@/components/CardsCarousel";
+import CardsSection from "@/components/CardsSection";
 import Sponsors from "@/components/Sponsors";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
-        <CardsCarousel />
+        <CardsSection />
         <Sponsors />
         <Testimonials />
         <FAQ />

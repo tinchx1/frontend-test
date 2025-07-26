@@ -2,7 +2,6 @@
 @import '../styles/mixins.scss';
 
 .cards {
-  @include section-padding;
   @include text-center;
 
   &__section-title {

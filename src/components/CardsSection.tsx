@@ -1,7 +1,7 @@
 import Image from "next/image"
 import "./CardsCarousel.scss"
 
-export default function Cards() {
+export default function CardsSections() {
   const cards = [
     {
       id: 1,
