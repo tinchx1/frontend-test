@@ -21,7 +21,7 @@
     @include container;
     max-width: 1400px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: $spacing-lg;
     justify-items: center;
     margin-bottom: $spacing-4xl;
@@ -76,6 +76,19 @@
     color: $color-black;
     text-align: center;
     line-height: $line-height-tight;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-lg;
+    }
+    
+    &__item:last-child {
+      grid-column: 1 / -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
   }
 
   @include mobile-only {

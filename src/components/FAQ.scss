@@ -54,6 +54,7 @@
 
   &__question {
     width: 100%;
+    height: 69px;
     padding: $spacing-xl;
     background: transparent;
     border: none;
@@ -132,9 +133,11 @@
       padding: $spacing-xl $spacing-lg;
       margin: 0;
       color: $color-gray-600;
-      font-family: $font-family-nunito;
-      font-weight: $font-weight-light;
-      font-size: 12.06px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 100%;
       letter-spacing: 0%;
     }
   }
@@ -155,8 +158,13 @@
     }
 
     &__answer p {
-      padding: 0 $spacing-lg $spacing-lg;
-      font-size: $font-size-xs;
+      padding: $spacing-xl $spacing-lg;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 12.06px;
+      line-height: 100%;
+      letter-spacing: 0%;
     }
   }
 }
