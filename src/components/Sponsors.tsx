@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { SPONSORS_DATA, SECTION_TITLES, IMAGE_SIZES, MARQUEE_CONFIG } from "@/constants"
 import "./Sponsors.scss"
 
 interface MarqueeProps {
@@ -6,7 +7,7 @@ interface MarqueeProps {
   repeat?: number;
 }
 
-function Marquee({ children, repeat = 4 }: MarqueeProps) {
+function Marquee({ children, repeat = MARQUEE_CONFIG.defaultRepeat }: MarqueeProps) {
   return (
     <div className="marquee">
       {Array(repeat)
@@ -21,7 +22,7 @@ function Marquee({ children, repeat = 4 }: MarqueeProps) {
 }
 
 export default function Sponsors() {
-  const sponsors = Array(7).fill("DELSUD")
+  const sponsors = Array(SPONSORS_DATA.count).fill(SPONSORS_DATA.name)
 
   return (
     <section className="sponsors">
@@ -32,7 +33,12 @@ export default function Sponsors() {
         <Marquee>
           {sponsors.map((sponsor, index) => (
             <div key={index} className="sponsors__item">
-              <Image src={`/logo_delsud.webp`} alt={sponsor} width={145} height={24} />
+              <Image 
+                src={SPONSORS_DATA.logo} 
+                alt={sponsor} 
+                width={IMAGE_SIZES.sponsor.width} 
+                height={IMAGE_SIZES.sponsor.height} 
+              />
             </div>
           ))}
         </Marquee>

@@ -1,43 +1,14 @@
 "use client"
-import { useState } from "react"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import { TESTIMONIALS_DATA, SECTION_TITLES, IMAGE_SIZES } from "@/constants"
+import { useCarousel } from "@/hooks"
 import "./Testimonials.scss"
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const testimonials = [
-    {
-      id: 1,
-      name: "Daniel",
-      company: "Empresa 1",
-      text: "Lorem ipsum dolor sit amet consectetur. Ut quam lacus est feugiat. At at velit nullam sollicitudin tempor eu scelerisque.. Nullam purus in vitae sed diam urna nulla augue ac..",
-      image: "/daniel.png",
-    },
-    {
-      id: 2,
-      name: "Franco",
-      company: "Empresa 2",
-      text: "Lorem ipsum dolor sit amet consectetur. Commodo cras sit diam viverra phasellus massa lorem suspendisse venenatis.. Amet laoreet accumsan egestas egestas erat.. Nisi a curabitur in ut habitant molestie euismod elit.. Venenatis lacus dui ipsum gravida fermentum platea scelerisque.",
-      image: "/franco.png",
-    },
-    {
-      id: 3,
-      name: "Eugenia",
-      company: "Empresa 3",
-      text: "Lorem ipsum dolor sit amet consectetur. Mauris mauris ipsum sit egestas in.. Velit vitae eget pharetra adipiscing ut sit egestas condimentum.. Praesent enim ullamcorper utrices est. Duis pellentesque mi ultrices sit vel.. Consequat ut velit id mi in..",
-      image: "/eugenia.png",
-    },
-  ]
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+  const { currentIndex, goToNext, goToPrev, goToIndex } = useCarousel({
+    itemsLength: TESTIMONIALS_DATA.length
+  })
 
   return (
     <section className="testimonials">
@@ -48,14 +19,14 @@ export default function Testimonials() {
         
         {/* Grid para desktop/tablet */}
         <div className="testimonials__grid testimonials__grid--desktop">
-          {testimonials.map((testimonial) => (
+          {TESTIMONIALS_DATA.map((testimonial) => (
             <div key={testimonial.id} className="testimonials__card">
               <div className="testimonials__avatar">
                 <Image
                   src={testimonial.image}
                   alt={testimonial.name}
-                  width={80}
-                  height={80}
+                  width={IMAGE_SIZES.avatar.width}
+                  height={IMAGE_SIZES.avatar.height}
                 />
               </div>
               <h4 className="testimonials__name">{testimonial.name}</h4>
@@ -72,14 +43,14 @@ export default function Testimonials() {
               className="testimonials__track"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {testimonials.map((testimonial) => (
+              {TESTIMONIALS_DATA.map((testimonial) => (
                 <div key={testimonial.id} className="testimonials__card testimonials__card--mobile">
                   <div className="testimonials__avatar">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
-                      width={80}
-                      height={80}
+                      width={IMAGE_SIZES.avatar.width}
+                      height={IMAGE_SIZES.avatar.height}
                     />
                   </div>
                   <h4 className="testimonials__name">{testimonial.name}</h4>
@@ -91,19 +62,19 @@ export default function Testimonials() {
           </div>
 
           <div className="testimonials__navigation">
-            <button className="testimonials__nav testimonials__nav--prev" onClick={prevTestimonial}>
+            <button className="testimonials__nav testimonials__nav--prev" onClick={goToPrev}>
               <ArrowLeft size={20} />
             </button>
             <div className="testimonials__indicators">
-              {testimonials.map((_, index) => (
+              {TESTIMONIALS_DATA.map((_, index) => (
                 <button
                   key={index}
                   className={`testimonials__indicator ${index === currentIndex ? 'testimonials__indicator--active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => goToIndex(index)}
                 />
               ))}
             </div>
-            <button className="testimonials__nav testimonials__nav--next" onClick={nextTestimonial}>
+            <button className="testimonials__nav testimonials__nav--next" onClick={goToNext}>
               <ArrowRight size={20} />
             </button>
           </div>
