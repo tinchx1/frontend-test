@@ -45,7 +45,6 @@
 
   &__content {
     display: grid;
-    gap: $spacing-2xl;
     align-items: center;
 
     @include desktop-up {
@@ -54,26 +53,39 @@
   }
 
   &__text-content {
-    text-align: center;
-
     @include desktop-up {
       text-align: left;
     }
   }
 
   &__title {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 29px;
+    font-family: 'Nunito Sans', $font-family-nunito;
+    font-weight: 500;
+    font-size: 22px;
     color: $color-white;
     margin-bottom: $spacing-xl;
+    text-align: center;
+    letter-spacing: 0%;
+    max-width: 300px;
+
+    @include desktop-up {
+      font-size: 29px;
+      text-align: left;
+      max-width: 100%;
+    }
   }
 
   &__highlight {
     color: $color-primary-light;
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-extrabold;
-    font-size: 29px;
+    font-family: 'Nunito Sans', $font-family-nunito;
+    font-weight: 800;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 0%;
+
+    @include desktop-up {
+      font-size: 29px;
+    }
   }
 
   &__button-container {
